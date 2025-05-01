@@ -1,0 +1,128 @@
+/* إعداد الخط العام والاتجاه */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: #1b1b1b;
+    color: #f5d76e;
+    direction: rtl;
+}
+
+/* الشريط العلوي */
+header {
+    background-color: #111;
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 28px;
+    color: #f5d76e;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #f5d76e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* قسم الترحيب */
+#hero {
+    background-image: url('tiaret.jpg.png'); /* هنا تضع صورتك الخاصة */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* يجعل الخلفية تتحرك بثبات عند التمرير */
+    text-align: center;
+    padding: 150px 20px;
+    color: #f5d76e;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+/* إضافة طبقة غامقة شفافة فوق الصورة لجعل النص بارز */
+#hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4); /* الشفافية السوداء */
+    z-index: 1;
+}
+
+/* لضمان أن النص فوق الطبقة الشفافة */
+#hero h2,
+#hero p {
+    position: relative;
+    z-index: 2;
+}
+
+
+#hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 22px;
+}
+
+/* الأقسام الرئيسية */
+#features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 60px 30px;
+    background-color: #222;
+}
+
+.feature {
+    background-color: #2d2d2d;
+    border: 2px solid #f5d76e;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 215, 100, 0.3);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 18px;
+}
+
+/* تذييل الصفحة */
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    border-top: 1px solid #333;
+    color: #f5d76e;
+}

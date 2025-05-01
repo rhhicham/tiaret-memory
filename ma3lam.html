@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متحف تيارت الافتراضي</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffd700;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #ffd700;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .item {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.1rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal-content {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      border: 2px solid #ffd700;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .close {
+      color: #ffd700;
+      font-size: 2rem;
+      cursor: pointer;
+      float: left;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1rem;
+      color: #888;
+      margin-top: auto;
+    }
+    .back-btn {
+      margin: 30px auto 10px;
+      display: block;
+      background-color: #ffd700;
+      color: #121212;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  متحف تيارت الافتراضي
+</header>
+
+<div class="gallery">
+  <div class="item" onclick="openModal('images/kamboussa.jpg', 'ضريح كمبوصة: من أهم المعالم الملكية في تيارت')">
+    <img src="images/kamboussa.jpg" alt="ضريح كمبوصة">
+    <div class="caption">ضريح كمبوصة</div>
+  </div>
+  <div class="item" onclick="openModal('images/qasr.jpg', 'قصر الملكة ديهيا: رمز المقاومة الأمازيغية')">
+    <img src="images/qasr.jpg" alt="قصر الملكة ديهيا">
+    <div class="caption">قصر الملكة ديهيا</div>
+  </div>
+  <div class="item" onclick="openModal('images/masjid.jpg', 'الجامع العتيق بتيارت: تحفة معمارية من العهد الإسلامي المبكر')">
+    <img src="images/masjid.jpg" alt="الجامع العتيق">
+    <div class="caption">الجامع العتيق</div>
+  </div>
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="معلم تراثي">
+    <p id="modal-caption"></p>
+  </div>
+</div>
+
+<a href="index.html" class="back-btn">عودة إلى الرئيسية</a>
+
+<footer>
+  🏛️ استكشف عظمة تاريخ تيارت من خلال متحفنا الافتراضي 🏛️
+</footer>
+
+<script>
+function openModal(imageSrc, captionText) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modal-img').src = imageSrc;
+  document.getElementById('modal-caption').textContent = captionText;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

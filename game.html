@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لعبة الذاكرة - ذاكرة تيارت</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffd700;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #ffd700;
+    }
+    .game {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .option {
+      background-color: #1e1e1e;
+      border: 1px solid #ffd700;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .option:hover {
+      background-color: #ffd700;
+      color: #121212;
+      transform: scale(1.05);
+    }
+    .back-btn {
+      margin: 30px auto 10px;
+      display: block;
+      background-color: #ffd700;
+      color: #121212;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #e6c200;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  لعبة الذاكرة - ذاكرة تيارت
+</header>
+
+<div class="game">
+  <div class="question" id="question">تحميل السؤال...</div>
+  <div class="options" id="options"></div>
+</div>
+
+<a href="index.html" class="back-btn">عودة إلى الرئيسية</a>
+
+<footer>
+  ✨ المعرفة رحلة ممتعة في ذاكرة تيارت العظيمة ✨
+</footer>
+
+<script>
+const questions = [
+  {
+    question: "من هو مؤسس الدولة الرستمية في تيهرت؟",
+    options: ["ابن خلدون", "عبد الرحمن بن رستم", "الأمير عبد القادر", "يوبا الثاني"],
+    answer: "عبد الرحمن بن رستم"
+  },
+  {
+    question: "في أي سنة تأسست الدولة الرستمية؟",
+    options: ["761م", "800م", "950م", "1230م"],
+    answer: "761م"
+  },
+  {
+    question: "من قاد مقاومة الاستعمار الفرنسي في القرن التاسع عشر؟",
+    options: ["يوبا الأول", "الأمير عبد القادر", "ابن خلدون", "ديهيا"],
+    answer: "الأمير عبد القادر"
+  },
+  {
+    question: "من هو العالم الشهير بكتاب المقدمة؟",
+    options: ["عبد الرحمن بن رستم", "الأمير عبد القادر", "ابن خلدون", "يوبا الثاني"],
+    answer: "ابن خلدون"
+  },
+  {
+    question: "أين يقع مقام الشيخ سيدي الحاج عيسى المعروف؟",
+    options: ["تيارت", "قسنطينة", "وهران", "بجاية"],
+    answer: "تيارت"
+  },
+  {
+    question: "ماذا كانت عاصمة الدولة الرستمية؟",
+    options: ["الجزائر العاصمة", "تيهرت", "تلمسان", "عنابة"],
+    answer: "تيهرت"
+  },
+  {
+    question: "من هي المرأة التي قادت الأمازيغ ضد الرومان؟",
+    options: ["ديهيا", "الكاهنة", "كلتاهما صحيح"],
+    answer: "كلتاهما صحيح"
+  }
+];
+
+let currentQuestion = 0;
+
+function showQuestion() {
+  const q = questions[currentQuestion];
+  document.getElementById('question').textContent = q.question;
+  const optionsDiv = document.getElementById('options');
+  optionsDiv.innerHTML = '';
+  q.options.forEach(option => {
+    const btn = document.createElement('div');
+    btn.className = 'option';
+    btn.textContent = option;
+    btn.onclick = () => checkAnswer(option);
+    optionsDiv.appendChild(btn);
+  });
+}
+
+function checkAnswer(selected) {
+  const q = questions[currentQuestion];
+  if (selected === q.answer) {
+    alert('إجابة صحيحة! 🎉');
+  } else {
+    alert('إجابة خاطئة! ❌');
+  }
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    alert('انتهت اللعبة! شكراً لمشاركتك.');
+    currentQuestion = 0;
+    showQuestion();
+  }
+}
+
+showQuestion();
+</script>
+
+</body>
+</html>

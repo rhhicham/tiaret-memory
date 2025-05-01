@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المكتبة - ذاكرة تيارت</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffd700;
+      font-family: 'Cairo', sans-serif;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #ffd700;
+    }
+    .library {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .book {
+      background-color: #1e1e1e;
+      border: 1px solid #ffd700;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .book:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(255, 215, 0, 0.5);
+    }
+    .book img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .book-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .book-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .book-desc {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    .download-btn {
+      background-color: #ffd700;
+      color: #121212;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .download-btn:hover {
+      background-color: #e6c200;
+    }
+    .back-btn {
+      display: block;
+      margin: 30px auto;
+      width: fit-content;
+      background-color: #ffd700;
+      color: #121212;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #e6c200;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 1.1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  المكتبة - ذاكرة تيارت
+</header>
+
+<section class="library">
+
+  <!-- كتاب 1 -->
+  <div class="book">
+    <img src="book1.jpg" alt="غلاف كتاب تاريخ تيارت">
+    <div class="book-content">
+      <div class="book-title">تاريخ ومعالم تيارت</div>
+      <div class="book-desc">كتاب يوثق تاريخ المدينة ومعالمها الأثرية.</div>
+      <a href="book1.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+  </div>
+
+  <!-- كتاب 2 -->
+  <div class="book">
+    <img src="book2.jpg" alt="غلاف كتاب الأمير عبد القادر">
+    <div class="book-content">
+      <div class="book-title">نضال الأمير عبد القادر</div>
+      <div class="book-desc">رحلة المقاومة والنضال لتحرير الجزائر.</div>
+      <a href="book2.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+  </div>
+
+  <!-- كتاب 3 -->
+  <div class="book">
+    <img src="book3.jpg" alt="غلاف كتاب ابن رستم">
+    <div class="book-content">
+      <div class="book-title">دولة ابن رستم في تيهرت</div>
+      <div class="book-desc">تراث الإمام ابن رستم وبناء أول دولة إسلامية.</div>
+      <a href="book3.pdf" class="download-btn" download>تحميل الكتاب</a>
+    </div>
+  </div>
+
+</section>
+
+<a href="index.html" class="back-btn">عودة إلى الرئيسية</a>
+
+<footer>
+  ✨ الكتب هي المفاتيح التي تفتح أبواب الذاكرة والحضارة ✨
+</footer>
+
+</body>
+</html>

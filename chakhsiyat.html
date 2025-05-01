@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>شخصيات من ذاكرة تيهرت</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+    h1 {
+      text-align: center;
+      color: #FFD700;
+      font-size: 3em;
+      margin: 30px 0 10px 0;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    p.description {
+      text-align: center;
+      color: #cccccc;
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 2s 1s forwards;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s 2s forwards;
+    }
+    .video-card {
+      background-color: #1a1a1a;
+      border: 2px solid #FFD700;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px #FFD70055;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-card:hover {
+      transform: scale(1.03);
+    }
+    video {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    .options button {
+      background-color: transparent;
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      border-radius: 8px;
+      padding: 8px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .options button:hover {
+      background-color: #FFD700;
+      color: #0d0d0d;
+      transform: scale(1.1);
+    }
+    /* زر العودة */
+    .back-btn {
+      display: block;
+      margin: 30px auto;
+      background-color: transparent;
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      border-radius: 10px;
+      padding: 10px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+    }
+    .back-btn:hover {
+      background-color: #FFD700;
+      color: #0d0d0d;
+      transform: scale(1.1);
+    }
+    /* التحميل */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+    #loader h2 {
+      color: #FFD700;
+      font-size: 2em;
+      margin-top: 20px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body onload="hideLoader()">
+
+  <!-- شاشة التحميل -->
+  <div id="loader">
+    <img src="logo.png" alt="ذاكرة تيارت" width="100" height="100">
+    <h2>ذاكرة تيهرت... حيث يحيى التراث</h2>
+  </div>
+
+  <h1>شخصيات من ذاكرة تيهرت</h1>
+  <p class="description">استمع إلى حكايات العظماء الذين صنعوا أمجاد تيهرت، بصوتهم وحضورهم من جديد.</p>
+
+  <!-- شبكة الفيديوهات -->
+  <div class="video-grid">
+
+    <!-- بطاقة ابن خلدون -->
+    <div class="video-card">
+      <video id="video1" controls src="videos/khaldoun1.mp4"></video>
+      <div class="options">
+        <button onclick="changeVideo('video1', 'videos/khaldoun1.mp4')">تعريف</button>
+        <button onclick="changeVideo('video1', 'videos/khaldoun2.mp4')">ماذا فعل؟</button>
+        <button onclick="changeVideo('video1', 'videos/khaldoun3.mp4')">كيف مات؟</button>
+      </div>
+    </div>
+
+    <!-- بطاقة الأمير عبد القادر -->
+    <div class="video-card">
+      <video id="video2" controls src="videos/abdo1.mp4"></video>
+      <div class="options">
+        <button onclick="changeVideo('video2', 'videos/abdo1.mp4')">تعريف</button>
+        <button onclick="changeVideo('video2', 'videos/abdo2.mp4')">ماذا فعل؟</button>
+        <button onclick="changeVideo('video2', 'videos/abdo3.mp4')">كيف مات؟</button>
+      </div>
+    </div>
+
+    <!-- بطاقة عبد الرحمن بن رستم -->
+    <div class="video-card">
+      <video id="video3" controls src="videos/restom1.mp4"></video>
+      <div class="options">
+        <button onclick="changeVideo('video3', 'videos/restom1.mp4')">تعريف</button>
+        <button onclick="changeVideo('video3', 'videos/rostom2.mp4')">ماذا فعل؟</button>
+        <button onclick="changeVideo('video3', 'videos/rostom3.mp4')">كيف مات؟</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- زر العودة -->
+  <a href="index.html" class="back-btn">العودة إلى الصفحة الرئيسية</a>
+
+  <!-- الصوت -->
+  <audio id="clickSound" src="click.mp3"></audio>
+
+  <script>
+    function hideLoader() {
+      setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+      }, 2500);
+    }
+
+    function playSound() {
+      var sound = document.getElementById('clickSound');
+      sound.play();
+    }
+
+    function changeVideo(videoId, source) {
+      var video = document.getElementById(videoId);
+      video.src = source;
+      video.play();
+      playSound();
+    }
+  </script>
+
+</body>
+</html>
